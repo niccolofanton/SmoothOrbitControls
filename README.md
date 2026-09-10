@@ -6,6 +6,8 @@
 
 ![demo](./demo.gif)
 
+**[▶ Live demo — side by side with stock `OrbitControls`](https://orbit.niccolofanton.dev)**
+
 [![GitHub stars](https://img.shields.io/github/stars/niccolofanton/SmoothOrbitControls?style=flat)](https://github.com/niccolofanton/SmoothOrbitControls/stargazers)
 
 </div>
@@ -58,6 +60,18 @@ export default function Scene() {
 - **Drop-in API** — accepts all `OrbitControls` props.
 - **Tunable feel** via `zoomSpeed` and `zoomDamping`.
 - **Single file, zero extra dependencies** beyond the R3F stack you already use.
+
+## Demo
+
+[**orbit.niccolofanton.dev**](https://orbit.niccolofanton.dev) puts stock `OrbitControls` and `SmoothOrbitControls` next to each other in the same procedural scene, with the same starting camera and the same `OrbitControls` settings, so the zoom is the only variable. Scroll (or pinch) on one half, then the other: a live distance trace under each pane shows the stepped jump against the damped ease. `zoomSpeed` and `zoomDamping` are sliders.
+
+The source lives in [`demo/`](./demo) and imports the component straight from the repository root, so it always exercises the file above:
+
+```bash
+cd demo
+npm install
+npm run dev
+```
 
 ## Tech stack
 
