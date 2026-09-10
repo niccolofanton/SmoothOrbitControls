@@ -23,7 +23,9 @@ export function ControlPanel({ defaults, onZoomSpeed, onZoomDamping, onReset }: 
   useEffect(() => {
     const params = { ...defaults };
 
-    const pane = new TweakPane({ title: 'SmoothOrbitControls props' });
+    const narrow = window.innerWidth <= 720;
+    // On a phone the panel would sit on top of the top pane, so it starts collapsed there.
+    const pane = new TweakPane({ title: 'SmoothOrbitControls props', expanded: !narrow });
 
     pane
       .addBinding(params, 'zoomSpeed', { min: 0.01, max: 0.3, step: 0.005 })
@@ -40,10 +42,7 @@ export function ControlPanel({ defaults, onZoomSpeed, onZoomDamping, onReset }: 
     const width = 300;
     const drift = createDriftpane(pane, {
       storageNamespace: 'smooth-orbit-controls-demo',
-      defaultPosition: {
-        x: Math.max(12, window.innerWidth - width - 20),
-        y: window.innerWidth <= 720 ? 108 : 68,
-      },
+      defaultPosition: { x: Math.max(12, window.innerWidth - width - 20), y: narrow ? 96 : 68 },
       width,
       theme: 'dark',
       // Two sliders and a button: presets and share links would be more chrome than content.
