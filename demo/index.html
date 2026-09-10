@@ -3,14 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>SmoothOrbitControls — A/B demo</title>
+
+    <title>SmoothOrbitControls — damped inertial zoom for R3F</title>
     <meta
       name="description"
-      content="Side-by-side comparison of drei's OrbitControls and SmoothOrbitControls: same scene, same camera, only the zoom differs."
+      content="A drop-in OrbitControls component for React Three Fiber and drei that swaps the stepped wheel zoom for a smooth, damped inertial one. Side-by-side live demo."
     />
-    <link rel="icon" href="data:," />
+    <meta name="author" content="Niccolò Fanton" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0c10" />
+    <link rel="canonical" href="https://orbit.niccolofanton.dev/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Niccolò Fanton" />
+    <meta property="og:title" content="SmoothOrbitControls — damped inertial zoom for R3F" />
+    <meta
+      property="og:description"
+      content="A drop-in OrbitControls component for React Three Fiber and drei that swaps the stepped wheel zoom for a smooth, damped inertial one. Side-by-side live demo."
+    />
+    <meta property="og:url" content="https://orbit.niccolofanton.dev/" />
+    <meta property="og:image" content="https://orbit.niccolofanton.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Two identical three.js scenes side by side comparing stock OrbitControls zoom with SmoothOrbitControls."
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SmoothOrbitControls — damped inertial zoom for R3F" />
+    <meta
+      name="twitter:description"
+      content="A drop-in OrbitControls component for React Three Fiber and drei that swaps the stepped wheel zoom for a smooth, damped inertial one. Side-by-side live demo."
+    />
+    <meta name="twitter:image" content="https://orbit.niccolofanton.dev/og.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Two identical three.js scenes side by side comparing stock OrbitControls zoom with SmoothOrbitControls."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "SmoothOrbitControls",
+        "description": "A drop-in OrbitControls component for React Three Fiber and drei that keeps orbit and pan but replaces the stepped wheel zoom with a smooth, damped inertial zoom driven by TrackballControls.",
+        "url": "https://orbit.niccolofanton.dev/",
+        "image": "https://orbit.niccolofanton.dev/og.png",
+        "applicationCategory": "DeveloperApplication",
+        "codeRepository": "https://github.com/niccolofanton/SmoothOrbitControls",
+        "programmingLanguage": "TypeScript",
+        "runtimePlatform": "React Three Fiber",
+        "license": "https://opensource.org/licenses/MIT",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "keywords": "OrbitControls, React Three Fiber, drei, three.js, smooth zoom, damping, inertia, TrackballControls",
+        "author": {
+          "@type": "Person",
+          "name": "Niccolò Fanton",
+          "url": "https://niccolofanton.dev",
+          "sameAs": ["https://github.com/niccolofanton"]
+        }
+      }
+    </script>
+
+    <style>
+      /* Crawlable copy: present in the served HTML, hidden from sighted users. */
+      .seo-copy {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
+    <main class="seo-copy">
+      <h1>SmoothOrbitControls — smooth, damped zoom for React Three Fiber</h1>
+      <p>
+        This page runs the same three.js scene twice, side by side: on the left drei's stock
+        <code>OrbitControls</code>, on the right <code>SmoothOrbitControls</code>. Scroll or pinch on
+        either half and only the zoom differs. The component keeps drei's
+        <code>OrbitControls</code> for rotation and panning with its own dolly disabled, and delegates
+        the zoom to <code>TrackballControls</code> with dynamic damping, so the wheel produces an
+        inertial glide instead of discrete steps. A <code>useFrame</code> effect copies the orbit
+        target onto the trackball target every frame so the two controls never disagree about the
+        pivot. The <code>zoomSpeed</code> and <code>zoomDamping</code> sliders in the panel retune the
+        feel live, and the readout under each canvas plots the resulting camera distance over time.
+      </p>
+      <p>
+        SmoothOrbitControls is a single self-contained TypeScript component you drop into an existing
+        React Three Fiber project — there is no npm package, you copy
+        <code>SmoothOrbitControls.tsx</code> from
+        <a href="https://github.com/niccolofanton/SmoothOrbitControls"
+          >the SmoothOrbitControls repository on GitHub</a
+        >
+        and install <code>three</code>, <code>@react-three/fiber</code> and
+        <code>@react-three/drei</code> as peer dependencies. It accepts every prop stock
+        <code>OrbitControls</code> takes, plus the two zoom knobs.
+      </p>
+      <p>
+        More of the same kind of thing on
+        <a href="https://demos.niccolofanton.dev">the three.js and WebGL demo hub</a>, and the rest of
+        the work on <a href="https://niccolofanton.dev">Niccolò Fanton's portfolio</a>.
+      </p>
+    </main>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -36,7 +36,7 @@ export function App() {
   return (
     <div className="app">
       <header className="top">
-        <h1>SmoothOrbitControls</h1>
+        <p className="brand">SmoothOrbitControls</p>
         <p>
           Same scene, same camera, same OrbitControls settings.{' '}
           {isCoarse ? 'Pinch each half' : 'Scroll on each half'} — only the zoom differs.
