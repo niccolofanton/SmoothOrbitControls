@@ -44,7 +44,6 @@ export function ControlPanel({ defaults, onZoomSpeed, onZoomDamping, onReset }: 
       storageNamespace: 'smooth-orbit-controls-demo',
       defaultPosition: { x: Math.max(12, window.innerWidth - width - 20), y: narrow ? 96 : 68 },
       width,
-      theme: 'dark',
       // Two sliders and a button: presets and share links would be more chrome than content.
       presetsEnabled: false,
       urlSync: false,
